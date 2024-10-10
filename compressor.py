@@ -5,7 +5,7 @@ aspect_ratio = 480/360
 
 current_directory = path.dirname(path.abspath(__file__))
 
-file_path = path.join(current_directory, "output1.txt")
+file_path = path.join(current_directory, "output.txt")
 
 output = open(file_path, "r")
 
