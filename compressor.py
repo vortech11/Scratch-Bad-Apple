@@ -1,6 +1,8 @@
 from os import path
 from math import sqrt
 
+compileDestination = input("Do you want to compile to scratch? (y/n)")
+
 aspect_ratio = 480/360 
 
 current_directory = path.dirname(path.abspath(__file__))
@@ -16,7 +18,9 @@ compiled_output.write("")
 compiled_output.close()
 compiled_output = open(file_path, "a")
 
-for line in output:
+compiled_output.write("id, Frame")
+
+for index, line in enumerate(output):
     output_frame = ""
     
     total_pixels = len(line)
@@ -26,6 +30,8 @@ for line in output:
 
     for y_index in range(y_length):
         output_line = ""
+        if compileDestination == "n":
+            output_line += str(index + 1) + ", "
         x_index = 0
         color = line[y_index * x_length]
         pixel_length = 0
